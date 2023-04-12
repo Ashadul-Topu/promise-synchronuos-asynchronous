@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+
+    <h4>Promise</h4>
+    <ul>
+        <li>How to create a promise</li>
+        <li>How to use a Promise</li>
+        <li>How to run multiple promise - all()</li>
+        <li>race()</li>
+        <li>promise chaining</li>
+    </ul>
+    
+    <script>
+        console.log('Welcome to JS promise');
+
+        // how to create a promise, promise have 3 states -> pending, resolved, rejected
+        const promise1 = new Promise((resolve, reject) =>{
+
+            let completedPromise = false;
+            if(completedPromise){
+                resolve('demo promise is completed');
+            }else{
+                // reject('demo promise is not completed');
+                reject ( new Error('demo promise is not completed'));
+            }
+        })
+        // console.log(promise1);
+
+        //how to use promise
+        promise1.then((res)=>{
+            console.log(res);
+        }).catch((err)=>{
+            // console.log(err);
+            console.log(err.message);
+        })
+
+
+        // promise all(); we can call multiple promise at a time using the promise ,all() function
+        // Promise.all([promise1, promise2]).then((res)=>{});
+
+        // promise race condition; we can check and select one promise from multiple promises using the promise race condition, race condition only this promise which promise will response first.
+        //Promise.race([promise1, promise2]).then((res)=>{});
+
+
+        
+
+        console.log("Bye to JS promise");
+    </script>
+</body>
+</html>

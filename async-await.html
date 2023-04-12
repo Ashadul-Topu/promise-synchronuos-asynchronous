@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async await</title>
+</head>
+<body>
+    
+    <h4>ES6 promise chaining</h4>
+    <h4>ES7 async await</h4>
+
+    <script>
+
+        function taskOne(){
+            return new Promise((resolve, reject)=>{
+                resolve('task One completed')
+            })
+        }
+        function taskTwo(){
+            return new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                    resolve('task Two completed')
+                }), 2000 })
+        }
+        function taskThree(){
+            return new Promise((resolve, reject)=>{
+                resolve('task Three completed')
+            })
+        }
+        function taskFour(){
+            return new Promise((resolve, reject)=>{
+                resolve('task Four completed')
+            })
+        }
+        function taskFive(){
+            return new Promise((resolve, reject)=>{
+                reject('task Five not completed')
+            })
+        }
+        function taskSix(){
+            return new Promise((resolve, reject)=>{
+                resolve('task Six completed')
+            })
+        }
+        // promise chaining 
+        // taskOne().then((res)=> console.log(res))
+        // .then(taskTwo).then((res)=> console.log(res))
+        // .then(taskThree).then((res)=> console.log(res))
+        // .then(taskFour).then((res)=> console.log(res))
+        // .then(taskFive).then((res)=> console.log(res))
+        // .then(taskFive).then((res)=> console.log(res))
+        // .catch(err => console.log(err))
+        // note: if any task/ any function is rejected then other tasks/function after the task/function will be rejected
+
+        // async await
+        const callAllTasks = async()=>{
+            try{
+            const t1 = await taskOne();
+            console.log(t1);
+            const t2 = await taskTwo();
+            console.log(t2);
+            const t3 = await taskThree();
+            console.log(t3);
+            const t4 = await taskFour();
+            console.log(t4);
+            const t5 = await taskFive();
+            console.log(t5
+            );
+            }catch(err) {
+            console.log(err);
+            }
+        }
+
+        callAllTasks();
+    </script>
+</body>
+</html>
