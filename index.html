@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Promise / Async </title>
+</head>
+<body>
+    <ul>
+        <h4>8. Promise / Async</h4>
+        <li> 8.1 Synchronous vs Asynchronous</li>
+        <li>Callback, higher-order function</li>
+        <li>promise</li>
+        <li>Async await</li>
+    </ul>
+
+    <script>
+        // synchronous programming
+        // javascript by default synchronous programming language,
+        console.log('synchronous programming');
+        console.log('Task 1');
+        console.log('Task 2');
+        console.log('Task 3');
+        console.log('Task 4');
+        console.log('Task 5');
+
+        // asynchronous programming
+        // asynchronous programming doesn't wait for any code blocks 
+        console.log('Asynchronous Programming');
+        const taskOne = ()=>{
+            console.log('Task 1');
+        }
+        const taskTwo = ()=>{
+            console.log('Task 2');
+        }
+        // make asynchronous program
+        function loadDataAPI(){
+            console.log('Task 3. API loaded');
+        } // when taskThree function is loaded data other function will be executed
+        const taskThree = ()=>{
+            setTimeout(loadDataAPI, 2000)
+        }
+
+        const taskFour= ()=>{
+            console.log('Task 4');
+        }
+        const taskFive = ()=>{
+            console.log('Task 5');
+        }
+
+        taskOne();
+        taskTwo();
+        taskThree();
+        taskFour();
+        taskFive();
+    </script>
+</body>
+</html>
